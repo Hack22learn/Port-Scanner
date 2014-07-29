@@ -1,5 +1,6 @@
 # ___________MAIN MODULE___________________
 #  V-1.1
+#Python 2.7.6
 # Port Scanner 
 __author__ = "Sudhanshu Patel (sudhanshuptl13@gmail.com)"
 
