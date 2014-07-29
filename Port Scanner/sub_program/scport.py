@@ -1,5 +1,5 @@
 from datetime import datetime
-import socket 
+import socket,sys 
 
 class Portscan():
     def __init__(self,remoteServer):
@@ -9,6 +9,9 @@ class Portscan():
         # Some of most common port
         try:
             self.remoteServerIP=socket.gethostbyname(remoteServer) #Resolving IP of host
+            print '*'*80
+            print '          Host ;-     "',remoteServer,'"      and its IP :-   "',self.remoteServerIP,'"'
+            print '*'*80
         except:
             print "Unable to fetch Host"
             
@@ -30,8 +33,8 @@ class Portscan():
                     output_port.append(port)
                 sock.close() #close Socket
 
-                print '         We r Done!!  '
-                return output_port
+            print ' \n        We r Done!!  '
+            return output_port
                 
                 
         except KeyboardInterrupt:
@@ -64,8 +67,8 @@ class Portscan():
                     output_port.append(port)
                 sock.close() #close Socket
 
-                print '         We r Done!!  '
-                return output_port
+            print ' \n        We r Done!!  '
+            return output_port
                 
                 
         except KeyboardInterrupt:
@@ -85,7 +88,7 @@ class Portscan():
            we also create some Error handler to handle Error
         '''
         print "....................Be Patience , it will take time.................... "
-        print '               We Gonna Check for All port Entered By You..'
+        print ' We Gonna Check for All port in range 0 to 1024\n '
 
         output_port=[]
         try:  #Exception Handling
@@ -97,8 +100,8 @@ class Portscan():
                     output_port.append(port)
                 sock.close() #close Socket
 
-                print '         We r Done!! \n '
-                return output_port
+            print ' \n        We r Done!! \n '
+            return output_port
                 
                 
         except KeyboardInterrupt:

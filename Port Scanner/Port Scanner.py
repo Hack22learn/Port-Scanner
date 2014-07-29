@@ -27,6 +27,7 @@ if __name__=='__main__':
         if choice=='1':
             ob=scport.Portscan(raw_input('Enter Remote Host name :- '))
             ls=ob.Scan_common_port()
+            #we use ls for to store it in file
             
         elif choice=='2':
             ob=scport.Portscan(raw_input('Enter Remote Host name :- '))
