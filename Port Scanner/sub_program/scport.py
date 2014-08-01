@@ -14,7 +14,8 @@ class Portscan():
             print '*'*80
         except:
             print "Unable to fetch Host"
-            sys.exit() #we need to detroy object we have to find out a way to do this
+            self.remoteServerIP='Not Found'
+           #sys.exit() #we need to detroy object we have to find out a way to do this
             
 
     def Scan_port(self):
@@ -24,22 +25,25 @@ class Portscan():
         print "................Be Patience , it will take time.................."
         print '..........We check for some commonly used Port ....'
 
-        output_port=[]
+        output_port=[self.remoteServer,str(self.remoteServerIP)] #Use in file_handler module
+        
         try:  #Exception Handling
-            for port in self._port_ls:
-                print 'Checking for Port ->> ',port
-                sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-                result = sock.connect_ex((self.remoteServerIP, port))
-                if result == 0:  #If port is open(i.e using this port we can connect to host )
-                    print "\t\t\t\t Open\n"
-                    output_port.append(port)
-                else:
-                    print "\t\t\t Closed\n"
-                sock.close() #close Socket
+            if self.remoteServerIP != 'Not Found':
+                for port in self._port_ls:
+                    print 'Checking for Port ->> ',port
+                    sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+                    result = sock.connect_ex((self.remoteServerIP, port))
+                    if result == 0:  #If port is open(i.e using this port we can connect to host )
+                        print "\t\t\t\t Open\n"
+                        output_port.append(port)
+                    else:
+                        print "\t\t\t Closed\n"
+                    sock.close() #close Socket
 
-            print ' \n        We r Done!!  '
-            return output_port
-                
+                print ' \n        We r Done!!  '
+                return output_port
+            else:
+                print 'Unable to Fetch host'
                 
         except KeyboardInterrupt:
             print "You pressed Ctrl+C"
@@ -51,32 +55,34 @@ class Portscan():
         except socket.error:
             print "Couldn't connect to server"
             sys.exit()
-        
-    
+
+            
     def Brute_scan(self):
         '''
-           Using Range Function to specify ports (here We scan all port in range 1 to 1024
-           we also create some Error handler to handle Error
+           We check for all commonly used  port .....
         '''
-        print "....................Be Patience , it will take time.................... "
-        print ' We Gonna Check for All port in range 0 to 1024 '
+        print "................Be Patience , it will take time.................."
+        print '..........We check for some commonly used Port ....'
 
-        output_port=[]
+        output_port=[self.remoteServer,str(self.remoteServerIP)] #Use in file_handler module
+        
         try:  #Exception Handling
-            for port in range(1,1025):
-                print 'Checking for Port ->> ',port
-                sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-                result = sock.connect_ex((self.remoteServerIP, port))
-                if result == 0:  #If port is open(i.e using this port we can connect to host )
-                    print "\t\t\t\t Open\n"
-                    output_port.append(port)
-                else:
-                     print "\t\t\t Closed\n" 
-                sock.close() #close Socket
+            if self.remoteServerIP != 'Not Found':
+                for port in range(1,1025):
+                    print 'Checking for Port ->> ',port
+                    sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+                    result = sock.connect_ex((self.remoteServerIP, port))
+                    if result == 0:  #If port is open(i.e using this port we can connect to host )
+                        print "\t\t\t\t Open\n"
+                        output_port.append(port)
+                    else:
+                        print "\t\t\t Closed\n"
+                    sock.close() #close Socket
 
-            print ' \n        We r Done!!  '
-            return output_port
-                
+                print ' \n        We r Done!!  '
+                return output_port
+            else:
+                print 'Unable to Fetch host'
                 
         except KeyboardInterrupt:
             print "You pressed Ctrl+C"
@@ -88,4 +94,4 @@ class Portscan():
         except socket.error:
             print "Couldn't connect to server"
             sys.exit()
-
+   
