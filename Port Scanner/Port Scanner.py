@@ -1,5 +1,6 @@
 # ___________MAIN MODULE___________________
-#  V-1.02
+#  V-1.04
+# Python 2.7.6
 # Port Scanner 
 __author__ = "Sudhanshu Patel (sudhanshuptl13@gmail.com)"
 
@@ -22,7 +23,7 @@ if __name__=='__main__':
             print """
             1 ::- Scan remote Host for most common used Port
             2 ::- Brute Scan : Scan host for all port in range 0 to 1024
-            3 ::- Scan remote host for port you want (you have to enter port)
+             3 ::- Scan remote host for port you want (you have to enter port)
             4 ::- Exit !!
          """
             choice=raw_input('Enter Your Choice ::- ')

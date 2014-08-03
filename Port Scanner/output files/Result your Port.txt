@@ -1,0 +1,9 @@
+	 Host name :-Jai_Hind		 IP Address :- 192.168.194.102
+
+
+                       We Search your Given remoteHost ..
+                       for All  Port Given By You
+                
+
+			List Of Open Port 
+			443 , 

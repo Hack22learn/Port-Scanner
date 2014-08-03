@@ -1,3 +1,4 @@
+import os
 
 class File_handling():
     '''
@@ -11,7 +12,14 @@ class File_handling():
         '''
           Create a text file and Store data about host its IP Address and list of open port
        '''
-        f=open(self.fname,'w')
+        
+        path=os.getcwd() # path of current directory
+        try:
+            os.mkdir(path+'/output files/') #create file if not available 
+        except:
+           pass
+        
+        f=open(path+'/output files/'+self.fname,'w')
         f.write('\t Host name :-'+str(ls[0])+'\t\t IP Address :- '+str(ls[1]))
         f.write('\n\n'+self.info+'\n\n')
         f.write('\t\t\tList Of Open Port \n\t\t\t')
