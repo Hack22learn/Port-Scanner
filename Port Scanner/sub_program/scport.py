@@ -3,7 +3,7 @@ import socket,sys
 
 class Portscan():
     # Some of most common port is default argument
-    def __init__(self,remoteServer,df_list=[21, 22, 23, 25, 53, 53, 80, 81, 110, 111,119, 123, 135, 139, 143, 161, 443, 445,465,563,587,902,912,993,995, 1024, 1723, 3389, 4567, 5000,5631, 8080, 8081,9601]):
+    def __init__(self,remoteServer,df_list=[21, 22, 23, 25, 53, 53, 80, 110, 111,119, 123, 135, 139, 143, 161, 443, 445,465,563,587,902,912,993,995, 1024, 1723, 3389, 4567, 5000,5631, 8080, 8081,9601]):
         '''Initiate port scanner'''
         self.remoteServer=remoteServer
         self._port_ls= df_list
@@ -30,14 +30,13 @@ class Portscan():
         try:  #Exception Handling
             if self.remoteServerIP != 'Not Found':
                 for port in self._port_ls:
-                    print 'Checking for Port ->> ',port
                     sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+		    sock.settimeout(0.1)
                     result = sock.connect_ex((self.remoteServerIP, port))
                     if result == 0:  #If port is open(i.e using this port we can connect to host )
-                        print "\t\t\t\t Open\n"
+                        print "port -> %s Open\n"%port
                         output_port.append(port)
-                    else:
-                        print "\t\t\t Closed\n"
+    
                     sock.close() #close Socket
 
                 print ' \n        We r Done!!  '
@@ -68,15 +67,14 @@ class Portscan():
         
         try:  #Exception Handling
             if self.remoteServerIP != 'Not Found':
-                for port in range(1,1025):
-                    print 'Checking for Port ->> ',port
+                for port in xrange(1,1025):
                     sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+		    sock.settimeout(0.1)
                     result = sock.connect_ex((self.remoteServerIP, port))
                     if result == 0:  #If port is open(i.e using this port we can connect to host )
-                        print "\t\t\t\t Open\n"
+                        print "port -> %s Open\n"%port
                         output_port.append(port)
-                    else:
-                        print "\t\t\t Closed\n"
+			
                     sock.close() #close Socket
 
                 print ' \n        We r Done!!  '

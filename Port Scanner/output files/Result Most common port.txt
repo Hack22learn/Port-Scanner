@@ -1,0 +1,10 @@
+	 Host name :-nishesh		 IP Address :- 192.168.38.1
+
+
+                       We Search your Given remoteHost ..
+                       for most common port that are used by many server
+                
+
+			List Of Open Port 
+			25 , 110 , 119 , 135 , 139 , 143 , 
+			445 , 465 , 563 , 587 , 993 , 995 , 

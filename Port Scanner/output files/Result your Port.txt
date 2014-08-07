@@ -1,4 +1,4 @@
-	 Host name :-Jai_Hind		 IP Address :- 192.168.194.102
+	 Host name :-lenovo		 IP Address :- 192.168.195.131
 
 
                        We Search your Given remoteHost ..
@@ -6,4 +6,4 @@
                 
 
 			List Of Open Port 
-			443 , 
+			No Port Open Port Found or  Remote host Not found , 

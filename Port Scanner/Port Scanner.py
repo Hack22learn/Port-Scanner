@@ -4,13 +4,14 @@
 # Port Scanner 
 __author__ = "Sudhanshu Patel (sudhanshuptl13@gmail.com)"
 
-import sys
+import sys,os
 try:
     sys.path.insert(0,'sub_program')
     import scport
     import filehand
 except:
     print 'Unable to Find subprogram folder or scport.py'
+    sys.exit()
 
 if __name__=='__main__':
      # Information for User
